@@ -102,3 +102,16 @@ class TorgenStonemason(Card):
 
     def recover_props(self):
         self.has_rotation_property = 1
+
+
+
+class Manny(Card):
+    def __init__(self) -> None:
+        super().__init__()
+        self.name = "Манета"
+        self.has_primary_property = 1
+
+    def primary_property(self, p1: Player, p2: Player):
+        p1.gold += 1
+        self.has_primary_property = 0
+        print("Вам добавлено 1 золота!")
