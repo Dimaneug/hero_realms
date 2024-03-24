@@ -99,7 +99,7 @@ class TorgenStonemason(Card):
         choice = int(input("Какую карту хочет сбросить противник: "))
         p2.hand.pop(choice-1)
         self.has_rotation_property = 0
-
+    
     def recover_props(self):
         self.has_rotation_property = 1
 
@@ -141,4 +141,37 @@ class Darianwarmadgik (Card):
         self.has_rotation_property = 0
 
      def recover_props(self):
+        self.has_rotation_property = 1
+
+
+
+
+
+class Vspushka(Card):
+    def __init__(self) -> None:
+        super().__init__()
+        super().__init__()
+        self.fraction = "Дикари"
+        self.name = "Вспышка"
+        self.cost = 1
+        self.defense =-1
+        self.guard = False
+        self.has_primary_property = 1
+        self.has_fraction_property = 1
+
+    def primary_property(self, p1: Player, p2: Player):
+        p1.attack += 3
+        p2.print_hand()
+        choice = int(input("Какую карту хочет сбросить противник: "))
+        p2.hand.pop(choice-1)
+        self.has_rotation_property = 0
+
+    def fraction_property(self, p1: Player, p2: Player):
+        p1.attack += 2
+        p2.print_hand()
+        choice = int(input("Какую карту хочет сбросить противник: "))
+        p2.hand.pop(choice-1)
+        self.has_rotation_property = 0
+    
+    def recover_props(self):
         self.has_rotation_property = 1
