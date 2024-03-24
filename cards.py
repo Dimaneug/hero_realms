@@ -102,3 +102,43 @@ class TorgenStonemason(Card):
 
     def recover_props(self):
         self.has_rotation_property = 1
+
+
+
+class Manny(Card):
+    def __init__(self) -> None:
+        super().__init__()
+        self.name = "Манета"
+        self.has_primary_property = 1
+
+    def primary_property(self, p1: Player, p2: Player):
+        p1.gold += 1
+        self.has_primary_property = 0
+        print("Вам добавлено 1 золота!")
+
+
+
+
+class Darianwarmadgik (Card):
+     def __init__(self) -> None:
+        super().__init__()
+        self.fraction = "Империя"
+        self.name = "Дариан боевой маг"
+        self.cost = 4
+        self.defense =5
+        self.guard = False
+        self.has_rotation_property = 1
+
+     def rotation_property(self, p1: Player, p2: Player):
+        choice = int(input("Что вы хотите сделать: 1: +3 к атаке; 2: +4 к здоровью "))
+        if choice == "1":
+            p1.attack += 3 
+        elif choice == "2":
+            p1.hp += 4
+        p2.print_hand()
+        choice = int(input("Какую карту хочет сбросить противник: "))
+        p2.hand.pop(choice-1)
+        self.has_rotation_property = 0
+
+     def recover_props(self):
+        self.has_rotation_property = 1
