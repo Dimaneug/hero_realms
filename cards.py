@@ -102,3 +102,22 @@ class TorgenStonemason(Card):
 
     def recover_props(self):
         self.has_rotation_property = 1
+
+class VarrikNecromancer(Card):
+    def __init__(self) ->None:
+        super().__init__()
+        self.fraction = "Культ Смерти"
+        self.name = "Варрик Некромант"
+        self.cost = 5
+        self.defense = 3
+        self.guard = False
+        self.has_rotation_property = 1
+        self.has_fraction_property = 1
+
+    def rotation_property(self, p1: Player, p2: Player):
+        p1.discard_deck.take.card if defense > 0
+        put card over p1.deck
+        self.has_rotation_property = 0
+        
+    def fraction_property(self, p1: Player, p2: Player):
+        p1.take.card = 1
